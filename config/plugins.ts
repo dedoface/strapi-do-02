@@ -3,13 +3,18 @@ export default ({ env }: { env: (key: string, defaultValue?: string) => string }
       config: {
         provider: '@strapi/provider-upload-aws-s3',
         providerOptions: {
-          credentials: {
-            accessKeyId: env('DO_SPACE_ACCESS_KEY'),
-            secretAccessKey: env('DO_SPACE_SECRET_KEY'),
+          s3Options: {
+            credentials: {
+              accessKeyId: env('DO_SPACE_ACCESS_KEY'),
+              secretAccessKey: env('DO_SPACE_SECRET_KEY'),
+            },
+            region: env('DO_SPACE_REGION'),
+            endpoint: env('DO_SPACE_ENDPOINT'),
           },
-          endpoint: env('DO_SPACE_ENDPOINT'),
-          region: env('DO_SPACE_REGION', 'us-east-1'),
-          bucket: env('DO_SPACE_BUCKET'),
+          params: {
+            ACL: env('DO_SPACE_ACL', 'public-read'),
+            Bucket: env('DO_SPACE_BUCKET'),
+          },
         },
         actionOptions: {
           upload: {},
