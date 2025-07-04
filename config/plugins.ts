@@ -1,7 +1,7 @@
 export default ({ env }: { env: (key: string, defaultValue?: string) => string }) => ({
     upload: {
       config: {
-        provider: '@johngerome/strapi-provider-upload-spaces',
+        provider: '@strapi/provider-upload-aws-s3',
         providerOptions: {
           credentials: {
             accessKeyId: env('DO_SPACE_ACCESS_KEY'),

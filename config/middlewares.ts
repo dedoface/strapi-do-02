@@ -2,28 +2,19 @@ export default [
   'strapi::logger',
   'strapi::errors',
   {
-    name: 'strapi::security',
+    name: "strapi::security",
     config: {
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          'connect-src': ["'self'", 'https:'],
-          'img-src': [
+          "connect-src": ["'self'", "https:"],
+          "img-src": [
             "'self'",
-            'data:',
-            'blob:',
-            'market-assets.strapi.io',
-            'yourBucketName.yourRegion.cdn.digitaloceanspaces.com', // with CDN
-            'yourBucketName.yourRegion.digitaloceanspaces.com',
+            "data:",
+            "blob:",
+            "*.digitaloceanspaces.com"
           ],
-          'media-src': [
-            "'self'",
-            'data:',
-            'blob:',
-            'market-assets.strapi.io',
-            'yourBucketName.yourRegion.cdn.digitaloceanspaces.com', // with CDN
-            'yourBucketName.yourRegion.digitaloceanspaces.com',
-          ],
+          "media-src": ["'self'", "data:", "blob:"],
           upgradeInsecureRequests: null,
         },
       },
